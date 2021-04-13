@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Launchpads from "./Launchpads";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LaunchInfo from "./LaunchInfo";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main>
+        <header>
+          <h1>spaceX</h1>
+        </header>
+        <div className="container">
+          <Switch>
+            <Route exact path="/">
+              <Launchpads />
+            </Route>
+            <Route path="/launches/:id">
+              <LaunchInfo />
+            </Route>
+          </Switch>
+        </div>
+        <footer>
+          <a href="https://www.linkedin.com/in/vardhman-jain-881b4b179/">
+            This project is built by vardhman jain(vardhmanjain293@gmail.com)
+          </a>
+        </footer>
+      </main>
+    </Router>
   );
 }
 
